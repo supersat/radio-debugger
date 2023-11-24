@@ -1,0 +1,18 @@
+OUTPUT_FORMAT(binary)
+/* Global symbols */
+memcpy = 0x081C6644;
+memset = 0x081C6CF0;
+CANSend = 0x08131D7A;
+DisableInterrupts = 0x08131C92;
+RestoreInterrupts = 0x08131CC2;
+ResetGPIO = 0xdcd5c;
+SetupMemory = 0xdd294;
+
+SECTIONS
+{
+	.text 0x1fb000 : AT(0)
+	{
+		intr.o(.text)
+		*(.text,.data,.bss,.rodata)
+	}
+}
